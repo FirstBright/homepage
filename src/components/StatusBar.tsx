@@ -15,12 +15,12 @@ const StatusBar: React.FC<StatusBarProps> = ({
 }) => {
     const getStatusText = () => {
         if (winner) {
-            if (winner === "cat") return "You Win! 🎉"
-            if (winner === "dog") return "Computer Wins! 🤖"
+            if (winner === "cat") return "Computer Wins! 🤖"
+            if (winner === "dog") return "You Win! 🎉"
             return "It's a Draw! 🤝"
         }
         if (isProcessing) return "Computer is thinking... 🤔"
-        return isPlayerTurn ? "Your Turn! 😺" : "Computer's Turn! 🐕"
+        return isPlayerTurn ? "Your Turn! 🐕" : "Computer's Turn! 😺"
     }
 
     return (

@@ -100,9 +100,7 @@ const minimax = (
 
 // New getBestMove function that uses minimax
 export const getBestMove = (board: BoardType): number => {
-    console.log("Getting best move for board:", board)
     const result = minimax([...board], 0, true)
-    console.log("Minimax result:", result)
     return result.move ?? -1
 }
 

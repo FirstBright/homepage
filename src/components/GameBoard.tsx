@@ -1,6 +1,6 @@
 import React from "react"
 import Cell from "./Cell"
-import { BoardType } from "./GameLogic"
+import { BoardType } from "../utils/GameLogic"
 
 interface BoardProps {
     board: BoardType
