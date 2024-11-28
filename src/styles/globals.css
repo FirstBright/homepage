@@ -2,32 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-.board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-.cell {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    cursor: pointer;
-}
-animate-broken {
-    animation: shake 0.5s linear infinite;
-}
-@keyframes shake {
-    0%,
-    100% {
-        transform: rotate(0);
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-rgb: 255, 255, 255;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-rgb: 0, 0, 0;
     }
-    25% {
-        transform: rotate(-10deg);
+  }
+  
+  /* Base styles */
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: rgb(var(--background-rgb));
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
+                 "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Safe area handling for mobile */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 1rem);
+  }
+  
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--background-rgb));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #666;
+  }
+  
+  /* Remove tap highlight on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Better button focus styles */
+  button:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+  }
+  
+  @media (max-width: 768px) {
+    button:focus {
+      outline: none;
     }
-    75% {
-        transform: rotate(10deg);
-    }
-}
+  }
+  
+  /* Smooth transitions */
+  .transition-opacity {
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  /* Canvas rendering */
+  canvas {
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+  }

@@ -16,7 +16,7 @@ interface ModalState {
     action: () => void
 }
 
-const TicTacToe: React.FC = () => {
+const TicTacToe = () => {
     const [board, setBoard] = useState<BoardType>(Array(9).fill(null))
     const [isPlayerTurn, setIsPlayerTurn] = useState(true)
     const [rounds, setRounds] = useState(0)
@@ -119,9 +119,9 @@ const TicTacToe: React.FC = () => {
 
                 if (newDrawCount >= 2) {
                     showModal(
-                        "Two draws! Redirecting to the introduction page.",
+                        "Two draws! Redirecting to the mondrian page.",
                         () => {
-                            router.push("/intro")
+                            router.push("/mondrian")
                         }
                     )
                 } else {
